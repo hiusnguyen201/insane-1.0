@@ -1,0 +1,63 @@
+"use client";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import React, { useRef } from "react";
+
+gsap.registerPlugin(useGSAP);
+
+const Preloader = () => {
+  const preloaderRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        defaults: {
+          ease: "power1.inOut",
+        },
+      });
+
+      tl.to(".preloader-name__text span", {
+        y: 0,
+        stagger: 0.05,
+        duration: 0.2,
+      });
+
+      tl.to(".preloader-item", {
+        delay: 1,
+        y: "100%",
+        duration: 0.5,
+        stagger: 0.1,
+      })
+        .to(".preloader-name__text span", { autoAlpha: 0 }, "<0.5")
+        .to(
+          preloaderRef.current,
+          {
+            autoAlpha: 0,
+          },
+          "<1"
+        );
+    },
+    { scope: preloaderRef }
+  );
+
+  return (
+    <div className="fixed inset-0 z-[6] flex" ref={preloaderRef}>
+      {[...Array(10)].map((_, index) => (
+        <div
+          key={index}
+          className="preloader-item flex-1 h-full bg-black"
+        ></div>
+      ))}
+
+      <p className="preloader-name__text text-white flex text-[20vw] lg:text-[200px] text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 leading-none overflow-hidden">
+        {["INSANE"].map((char: string) => (
+          <span key={char} className="inline-block translate-y-full uppercase">
+            {char}
+          </span>
+        ))}
+      </p>
+    </div>
+  );
+};
+
+export default Preloader;
