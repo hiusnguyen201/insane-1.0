@@ -9,6 +9,8 @@ const Background = () => {
   const particlesRef = useRef<HTMLDivElement[]>([]);
 
   useGSAP(() => {
+    if (!particlesRef.current?.length) return;
+
     particlesRef.current.forEach((particle) => {
       gsap.set(particle, {
         width: Math.random() * 3 + 1,
@@ -30,13 +32,13 @@ const Background = () => {
 
   return (
     <div className="fixed inset-0 z-0 pointer-events-none">
-      {[...Array(100)].map((_, i) => (
+      {[...Array(111)].map((_, i) => (
         <div
           key={i}
           ref={(el) => {
-            particlesRef.current.push(el!);
+            if (el) particlesRef.current[i] = el;
           }}
-          className="absolute rounded-full bg-white"
+          className="absolute rounded-full bg-[#212121] dark:bg-white"
         />
       ))}
     </div>
