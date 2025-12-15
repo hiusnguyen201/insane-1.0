@@ -3,8 +3,8 @@ import i18n from "@/lib/i18n/config";
 import { ThemeProvider } from "next-themes";
 import { ReactNode } from "react";
 import { ReactLenis } from "lenis/react";
-import Background from "@/components/Background";
-import Navbar from "@/components/Navbar";
+import Background from "@/components/layouts/Background";
+import Navbar from "@/components/layouts/Navbar";
 import { I18nextProvider } from "react-i18next";
 import ClientOnly from "@/components/ClientOnly";
 import "lenis/dist/lenis.css";
@@ -26,7 +26,7 @@ function App({ children }: { children: ReactNode }) {
             }}
           >
             <Navbar />
-            <main className="relative">{children}</main>
+            <main className="relative w-full">{children}</main>
             <Background />
           </ReactLenis>
         </ThemeProvider>

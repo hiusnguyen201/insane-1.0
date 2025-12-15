@@ -4,8 +4,8 @@ import App from "./app";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Insane",
-  description: "My Portfolio",
+  title: "Nguyễn Minh Hiếu - InSane",
+  description: "InSane's Portfolio",
 };
 
 export default function RootLayout({
