@@ -30,15 +30,17 @@ function Hero() {
               align="end"
               alwaysShowTooltipContent
               tooltipContent={
-                <div className="flex flex-col gap-0.5 mb-[40%] cursor-default">
-                  <div className="w-3 h-3 rounded-full bg-background shadow-xs border border-border dark:shadow-top-glow-inset"></div>
-                  <div className="flex flex-col">
-                    <div className="flex items-center relative -bottom-px left-1/6">
-                      <div className="w-2.5 h-2.5 rounded-tl-full bg-background border border-r-0 border-b-0 border-border"></div>
-                      <div className="w-2.5 h-2.5 rounded-tr-full bg-background border border-l-0 border-b-0 border-border"></div>
-                    </div>
-                    <div className="py-2.5 px-3.5 rounded-2xl flex items-center justify-center bg-background shadow-xs border border-border font-medium dark:shadow-top-glow-inset">
-                      {author.status}
+                <div className="mb-[40%]">
+                  <div className="flex flex-col gap-0.5 cursor-default">
+                    <div className="w-3 h-3 rounded-full bg-surface shadow-xs border border-border"></div>
+                    <div className="flex flex-col">
+                      <div className="flex items-center relative -bottom-px left-[20%]">
+                        <div className="w-2.5 h-2.5 rounded-tl-full bg-surface border border-r-0 border-b-0 border-border"></div>
+                        <div className="w-2.5 h-2.5 rounded-tr-full bg-surface border border-l-0 border-b-0 border-border"></div>
+                      </div>
+                      <div className="py-2.5 px-3.5 rounded-2xl flex items-center justify-center bg-surface shadow-xs border border-border font-medium">
+                        {author.status}
+                      </div>
                     </div>
                   </div>
                 </div>

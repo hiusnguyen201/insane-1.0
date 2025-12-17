@@ -27,6 +27,7 @@ export default {
         border: "hsl(var(--border))",
         primary: "hsl(var(--primary))",
         secondary: "hsl(var(--secondary))",
+        surface: "hsl(var(--surface))",
       },
       boxShadow: {
         "top-glow-inset": "0 -20px 80px -20px #ffffff1f inset",
