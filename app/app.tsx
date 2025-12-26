@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 import i18n from "@/lib/i18n/config";
 import { ThemeProvider } from "next-themes";
 import { ReactNode } from "react";
@@ -12,7 +13,7 @@ import "lenis/dist/lenis.css";
 function App({ children }: { children: ReactNode }) {
   return (
     <ClientOnly>
-      <I18nextProvider i18n={i18n} defaultNS="en">
+      <I18nextProvider i18n={i18n} defaultNS={i18n.language}>
         <ThemeProvider
           enableSystem={false}
           attribute="class"
@@ -26,7 +27,17 @@ function App({ children }: { children: ReactNode }) {
             }}
           >
             <Navbar />
-            <main className="relative w-full">{children}</main>
+            <motion.main
+              className="relative w-full"
+              initial={{ y: -12, filter: "blur(12px)" }}
+              animate={{ y: 0, filter: "blur(0px)" }}
+              transition={{
+                duration: 0.4,
+                ease: "easeOut",
+              }}
+            >
+              {children}
+            </motion.main>
             <Background />
           </ReactLenis>
         </ThemeProvider>

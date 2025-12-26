@@ -2,8 +2,10 @@ import PhotoModal from "@/components/PhotoModal";
 import Avatar from "@/components/Avatar";
 import author from "@/constants/author";
 import IconButton from "@/components/IconButton";
+import { useTranslation } from "react-i18next";
 
 function Hero() {
+  const { t } = useTranslation("translation");
   return (
     <section id="hero" className="mt-24 mb-12">
       <div className="mx-auto max-w-screen-sm flex items-center justify-between gap-10">
@@ -14,8 +16,8 @@ function Hero() {
           <p className="text-secondary mb-2 text-xl font-extrabold">
             {author.nickname}
           </p>
-          <p className="text-primary text-xl max-w-screen-xs font-medium">
-            {author.jobTitle.join(" & ")}
+          <p className="text-primary text-xl font-medium w-full">
+            {t("MLK9")} <span>{author.jobTitle.join(" & ")}</span>
           </p>
         </div>
 

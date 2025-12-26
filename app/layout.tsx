@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import { cn } from "@/lib/utils";
-import { Lexend } from 'next/font/google'
+import { Lexend } from "next/font/google";
 import App from "./app";
+import author from "@/constants/author";
 import "./globals.css";
 
 const lexend = Lexend({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-lexend',
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-lexend",
 });
 
 export const metadata: Metadata = {
-  title: "Nguyễn Minh Hiếu - InSane",
-  description: "InSane's Portfolio",
+  title: `${author.name} - ${author.nickname}`,
+  description: `${author.nickname}'s Portfolio`,
 };
 
 export default function RootLayout({

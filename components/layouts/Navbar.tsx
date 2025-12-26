@@ -8,14 +8,13 @@ import {
   WrenchIcon,
 } from "lucide-react";
 import IconButton, { IconButtonProps } from "@/components/IconButton";
-import { t } from "i18next";
 import { Separator } from "../ui/separator";
 import { useTheme } from "next-themes";
 import { useTranslation } from "react-i18next";
 
 function Navbar() {
   const { theme, setTheme } = useTheme();
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation("translation");
 
   const isLight = theme === "light";
 

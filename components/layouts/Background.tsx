@@ -12,9 +12,11 @@ const Background = () => {
     if (!particlesRef.current?.length) return;
 
     particlesRef.current.forEach((particle) => {
+      const size = Math.random() * 3 + 1;
+
       gsap.set(particle, {
-        width: Math.random() * 3 + 1,
-        height: Math.random() * 3 + 1,
+        width: size,
+        height: size,
         opacity: Math.random(),
         left: Math.random() * window.innerWidth,
         top: Math.random() * (window.innerHeight + 1),
@@ -22,10 +24,11 @@ const Background = () => {
 
       gsap.to(particle, {
         y: window.innerHeight,
-        duration: Math.random() * 10 + 10,
         opacity: 0,
         repeat: -1,
         ease: "none",
+        x: "+=" + gsap.utils.random(-500, 500),
+        duration: Math.random() * 10 + 10,
       });
     });
   }, []);

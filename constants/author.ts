@@ -1,8 +1,8 @@
 const author = {
   name: "Nguyễn Minh Hiếu",
-  nickname: "InSane.",
+  nickname: "Insane.",
   avatar: "/assets/avatar.jpg",
-  jobTitle: ["Full Stack Developer", "Cooperator at FPT Telecom"],
+  jobTitle: ["Full Stack Developer"],
   status: "Hanoi",
   contact: {
     github: "https://github.com/hiusnguyen201",

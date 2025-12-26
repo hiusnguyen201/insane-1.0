@@ -7,24 +7,31 @@ import en from "./locales/en.json";
 
 const isClient = typeof window !== "undefined";
 
-const init: InitOptions = {
+const options: InitOptions = {
   resources: {
-    vi: {
-      translation: vi,
-    },
-    en: {
-      translation: en,
-    },
+    vi: { translation: vi },
+    en: { translation: en },
   },
+  ns: ["translation"],
+  defaultNS: "translation",
   lng: isClient ? localStorage.getItem("lang") ?? "en" : "en",
   supportedLngs: ["vi", "en"],
   fallbackLng: "en",
   debug: true,
   interpolation: {
-    escapeValue: true,
+    escapeValue: false,
   },
 };
 
-i18n.use(LanguageDetector).use(initReactI18next).init(init);
+i18n
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    ...options,
+    detection: {
+      order: ["localStorage", "navigator"],
+      caches: ["localStorage"],
+    },
+  });
 
 export default i18n;
